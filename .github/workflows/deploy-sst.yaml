@@ -22,7 +22,6 @@ jobs:
 
     env:
       # Define your envs needed for static generation:
-      NODE_ENV: "production"
       NEXTAUTH_URL: "https://ecommercetemplate.store"
       NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
