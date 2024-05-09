@@ -57,7 +57,10 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install && pnpm build
+
+      - name: Build project
+        run: pnpm build
 
       - name: Setup sst CLI
         uses: HamishBuckmaster/setup-sst@v1
@@ -69,4 +72,4 @@ jobs:
           aws-region: us-east-1
 
       - name: Deploy app
-        run: pnpm build && sst deploy --stage prod
+        run: sst deploy --stage prod
