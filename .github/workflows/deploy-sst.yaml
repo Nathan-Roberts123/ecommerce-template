@@ -56,7 +56,7 @@ jobs:
           run_install: false
 
       - name: Install prisma
-        run: pnpm add prisma
+        run: npm install -g prisma
 
       - name: Get pnpm store directory
         shell: bash
