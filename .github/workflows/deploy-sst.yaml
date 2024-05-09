@@ -59,7 +59,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Install pnpm
+      - name: Setup sst CLI
         uses: HamishBuckmaster/setup-sst@v1
 
       - name: Configure AWS credentials
@@ -69,4 +69,4 @@ jobs:
           aws-region: us-east-1
 
       - name: Deploy app
-        run: sst deploy --stage prod
+        run: pnpm build && sst deploy --stage prod
