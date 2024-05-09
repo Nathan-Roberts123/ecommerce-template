@@ -22,7 +22,7 @@ jobs:
 
     env:
       # Define your envs needed for static generation:
-      # NEXTAUTH_URL: "https://ecommercetemplate.store"
+      NEXTAUTH_URL: "https://ecommercetemplate.store"
       NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
       GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
@@ -54,9 +54,6 @@ jobs:
           version: 9.0.4
           run_install: false
 
-      - name: Install prisma
-        run: npm install -g prisma
-
       - name: Get pnpm store directory
         shell: bash
         run: |
@@ -83,4 +80,4 @@ jobs:
           aws-region: us-east-1
 
       - name: Deploy app
-        run: sst deploy --stage prod
+        run: sst deploy --stage production
