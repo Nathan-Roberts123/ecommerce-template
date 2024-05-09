@@ -59,6 +59,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Install pnpm
+        uses: HamishBuckmaster/setup-sst@v1
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
