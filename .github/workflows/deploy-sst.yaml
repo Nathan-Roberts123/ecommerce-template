@@ -63,7 +63,8 @@ jobs:
         run: pnpm install
 
       - name: Setup sst CLI
-        uses: HamishBuckmaster/setup-sst@v1
+        run: curl -fsSL https://ion.sst.dev/install | bash
+        #uses: HamishBuckmaster/setup-sst@v1
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
