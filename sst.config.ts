@@ -1,4 +1,5 @@
 /// <reference path="./.sst/platform/config.d.ts" />
+import { env } from "./src/env";
 
 export default $config({
   app(input) {

@@ -22,6 +22,7 @@ jobs:
 
     env:
       # Define your envs needed for static generation:
+      NODE_ENV: "production"
       NEXTAUTH_URL: "https://ecommercetemplate.store"
       NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
@@ -53,6 +54,9 @@ jobs:
         with:
           version: 9.0.4
           run_install: false
+
+      - name: Install prisma
+        run: pnpm add prisma
 
       - name: Get pnpm store directory
         shell: bash
