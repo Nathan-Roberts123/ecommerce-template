@@ -22,7 +22,7 @@ jobs:
 
     env:
       # Define your envs needed for static generation:
-      NEXTAUTH_URL: "https://ecommercetemplate.store"
+      # NEXTAUTH_URL: "https://ecommercetemplate.store"
       NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
       GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
