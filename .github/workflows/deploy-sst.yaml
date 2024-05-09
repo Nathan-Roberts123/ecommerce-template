@@ -66,4 +66,4 @@ jobs:
           aws-region: us-east-1
 
       - name: Deploy app
-        run: npx sst deploy --stage prod
+        run: pnpm sst deploy --stage prod
