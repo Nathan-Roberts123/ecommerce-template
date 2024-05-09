@@ -9,14 +9,14 @@ on:
 concurrency:
   group: merge-${{ github.ref }}
 
-# These permissions are needed to interact with GitHub’s OIDC Token endpoint.
-permissions:
-  id-token: write
-  contents: read
-
 jobs:
   DeployApp:
     runs-on: ubuntu-latest
+
+    # These permissions are needed to interact with GitHub’s OIDC Token endpoint.
+    permissions:
+      id-token: write
+      contents: read
 
     env:
       #Define your envs needed for static generation:
