@@ -37,6 +37,17 @@ jobs:
         with:
           node-version: 21.7.1
 
+      - name: Cache Next.js Build
+        uses: actions/cache@v3
+        with:
+          path: |
+            .next/cache/
+            .open-next/
+            .sst/
+          key: cache-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**.[jt]s', '**.[jt]xs') }}
+          restore-keys: |
+            cache-${{ hashFiles('**/pnpm-lock.yaml') }}-
+
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
