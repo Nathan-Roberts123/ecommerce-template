@@ -38,5 +38,5 @@
     "**/*.js",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules", "sst.config.ts", "./prisma/generated/client"]
+  "exclude": ["node_modules", "sst.config.ts"]
 }
