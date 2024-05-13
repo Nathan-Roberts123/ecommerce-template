@@ -177,6 +177,10 @@ const config = {
         "fromEnvVar": null,
         "value": "debian-openssl-3.0.x",
         "native": true
+      },
+      {
+        "fromEnvVar": null,
+        "value": "rhel-openssl-3.0.x"
       }
     ],
     "previewFeatures": [],
@@ -202,8 +206,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\ngenerator client {\n    provider = \"prisma-client-js\"\n    output   = \"./generated/client\"\n}\n\ndatasource db {\n    provider = \"postgresql\"\n    // NOTE: When using mysql or sqlserver, uncomment the @db.Text annotations in model Account below\n    // Further reading:\n    // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema\n    // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string\n    url      = env(\"DATABASE_URL\")\n}\n\nmodel Post {\n    id        Int      @id @default(autoincrement())\n    name      String\n    createdAt DateTime @default(now())\n    updatedAt DateTime @updatedAt\n\n    createdBy   User   @relation(fields: [createdById], references: [id])\n    createdById String\n\n    @@index([name])\n}\n\n// Necessary for Next auth\nmodel Account {\n    id                String  @id @default(cuid())\n    userId            String\n    type              String\n    provider          String\n    providerAccountId String\n    refresh_token     String? // @db.Text\n    access_token      String? // @db.Text\n    expires_at        Int?\n    token_type        String?\n    scope             String?\n    id_token          String? // @db.Text\n    session_state     String?\n    user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)\n\n    @@unique([provider, providerAccountId])\n}\n\nmodel Session {\n    id           String   @id @default(cuid())\n    sessionToken String   @unique\n    userId       String\n    expires      DateTime\n    user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)\n}\n\nmodel User {\n    id            String    @id @default(cuid())\n    name          String?\n    email         String?   @unique\n    emailVerified DateTime?\n    image         String?\n    accounts      Account[]\n    sessions      Session[]\n    posts         Post[]\n}\n\nmodel VerificationToken {\n    identifier String\n    token      String   @unique\n    expires    DateTime\n\n    @@unique([identifier, token])\n}\n",
-  "inlineSchemaHash": "4e0d2c7044b688b7a3aa3f94a2219f3de9e95a844d5a7b5ef632101103660424",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\ngenerator client {\n    provider      = \"prisma-client-js\"\n    output        = \"./generated/client\"\n    binaryTargets = [\"native\", \"rhel-openssl-3.0.x\"]\n}\n\ndatasource db {\n    provider = \"postgresql\"\n    // NOTE: When using mysql or sqlserver, uncomment the @db.Text annotations in model Account below\n    // Further reading:\n    // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema\n    // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string\n    url      = env(\"DATABASE_URL\")\n}\n\nmodel Post {\n    id        Int      @id @default(autoincrement())\n    name      String\n    createdAt DateTime @default(now())\n    updatedAt DateTime @updatedAt\n\n    createdBy   User   @relation(fields: [createdById], references: [id])\n    createdById String\n\n    @@index([name])\n}\n\n// Necessary for Next auth\nmodel Account {\n    id                String  @id @default(cuid())\n    userId            String\n    type              String\n    provider          String\n    providerAccountId String\n    refresh_token     String? // @db.Text\n    access_token      String? // @db.Text\n    expires_at        Int?\n    token_type        String?\n    scope             String?\n    id_token          String? // @db.Text\n    session_state     String?\n    user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)\n\n    @@unique([provider, providerAccountId])\n}\n\nmodel Session {\n    id           String   @id @default(cuid())\n    sessionToken String   @unique\n    userId       String\n    expires      DateTime\n    user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)\n}\n\nmodel User {\n    id            String    @id @default(cuid())\n    name          String?\n    email         String?   @unique\n    emailVerified DateTime?\n    image         String?\n    accounts      Account[]\n    sessions      Session[]\n    posts         Post[]\n}\n\nmodel VerificationToken {\n    identifier String\n    token      String   @unique\n    expires    DateTime\n\n    @@unique([identifier, token])\n}\n",
+  "inlineSchemaHash": "a525b415ed5eb4a7c68a8773111258ba25a87056717201c8203143a54d31eb88",
   "copyEngine": true
 }
 
@@ -243,6 +247,10 @@ Object.assign(exports, Prisma)
 // file annotations for bundling tools to include these files
 path.join(__dirname, "libquery_engine-debian-openssl-3.0.x.so.node");
 path.join(process.cwd(), "prisma/generated/client/libquery_engine-debian-openssl-3.0.x.so.node")
+
+// file annotations for bundling tools to include these files
+path.join(__dirname, "libquery_engine-rhel-openssl-3.0.x.so.node");
+path.join(process.cwd(), "prisma/generated/client/libquery_engine-rhel-openssl-3.0.x.so.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
 path.join(process.cwd(), "prisma/generated/client/schema.prisma")
