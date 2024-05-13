@@ -9,6 +9,8 @@ on:
 jobs:
   Deploy-Production:
     runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
     steps:
       - uses: actions/checkout@v2
       - name: Install Node.js
@@ -29,7 +31,5 @@ jobs:
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
       - name: Apply all pending migrations to the database
         run: pnpm exec prisma migrate deploy
-        env:
-          run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
       - name: Deploy Project Artifacts to Vercel
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
