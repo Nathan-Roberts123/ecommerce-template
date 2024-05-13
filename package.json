@@ -9,7 +9,7 @@
     "db:studio": "prisma studio",
     "dev": "sst dev next dev",
     "lint": "next lint",
-    "postinstall": "prisma generate && prisma migrate deploy",
+    "postinstall": "prisma generate",
     "start": "next start"
   },
   "dependencies": {
