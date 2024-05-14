@@ -1,14 +1,45 @@
 import { type Config } from "tailwindcss";
-import { fontFamily } from "tailwindcss/defaultTheme";
+
+// export default {
+//   content: ["./src/**/*.tsx"],
+//   theme: {
+//     extend: {
+//       fontFamily: {
+//         sans: ["var(--font-sans)", ...fontFamily.sans],
+//       },
+//     },
+//   },
+//   plugins: [],
+// } satisfies Config;
 
 export default {
-  content: ["./src/**/*.tsx"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
+      colors: {
+        primarygray: "#f8f8f8",
+        qblack: "#222222",
+        qyellow: "#FFBB38",
+        qred: "#EF262C",
+        qgray: "#797979",
+        qblacktext: "#1D1D1D",
+        qgraytwo: "#8E8E8E",
+        "qgray-border": "#EFEFEF",
+        "qblue-white": "#CBECFF",
+        "qh2-green": "#2D6F6D",
+        "qh4-pink": "#FDB2BB",
+        "qh3-blue": "#1868D5",
+      },
+      scale: {
+        60: "0.6",
       },
     },
   },
-  plugins: [],
+  variants: {
+    extend: {
+      textColor: ["focus-within"],
+      borderStyle: ["last"],
+    },
+  },
+  plugins: [require("@tailwindcss/line-clamp")],
 } satisfies Config;
