@@ -1,19 +1,25 @@
 import React from "react";
 import Link from "next/link";
 
-export interface CategoryListItemProps {
-  text: string;
-  icon: React.ReactNode;
+export type categoryItem = { text: string; icon: React.ReactNode };
+
+interface CategoryListItemProps {
+  item: categoryItem;
+  mobile?: boolean;
 }
 
-function CategoryListItem({ text, icon }: CategoryListItemProps) {
+function CategoryListItem({ item, mobile }: CategoryListItemProps) {
   return (
     <li className="category-item">
       <Link href="/all-products">
-        <div className="flex h-10 cursor-pointer items-center justify-between bg-white  px-5 text-qblack transition-all duration-300 ease-in-out hover:bg-qyellow">
+        <div
+          className={`flex ${mobile ? "h-12" : "h-10"} cursor-pointer items-center justify-between bg-white  px-5 text-qblack transition-all duration-300 ease-in-out hover:bg-qyellow`}
+        >
           <div className="flex items-center space-x-6">
-            <span>{icon}</span>
-            <span className="font-400 text-xs">{text}</span>
+            <span>{item.icon}</span>
+            <span className={`font-400 ${mobile ? "text-sm" : "text-xs"}`}>
+              {item.text}
+            </span>
           </div>
           <div>
             <span>

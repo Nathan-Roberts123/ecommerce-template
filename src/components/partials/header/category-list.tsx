@@ -2,8 +2,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Arrow from "~/components/helpers/icons/Arrow";
-import CategoryListItem from "./category-list-item";
-import { type CategoryListItemProps } from "./category-list-item";
+import CategoryListItem, {
+  type categoryItem,
+} from "~/components/helpers/category-list-item";
 
 import Laptop from "~/components/helpers/icons/Laptop";
 import Gaming from "~/components/helpers/icons/Gaming";
@@ -16,7 +17,7 @@ import Toilet from "~/components/helpers/icons/Toilet";
 import Makeup from "~/components/helpers/icons/Makeup";
 import Baby from "~/components/helpers/icons/Baby";
 
-const CategoryItems: CategoryListItemProps[] = [
+export const CategoryItems: categoryItem[] = [
   {
     text: "Mobile & Laptops",
     icon: <Laptop />,
@@ -132,14 +133,8 @@ function CategoryList() {
         style={{ height: `${elementsSize} ` }}
       >
         <ul className="categories-list">
-          {CategoryItems.map((item: CategoryListItemProps) => {
-            return (
-              <CategoryListItem
-                key={item.text}
-                text={item.text}
-                icon={item.icon}
-              />
-            );
+          {CategoryItems.map((item: categoryItem) => {
+            return <CategoryListItem key={item.text} item={item} />;
           })}
         </ul>
       </div>
