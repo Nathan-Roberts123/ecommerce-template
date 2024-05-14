@@ -1,6 +1,6 @@
 import "~/styles/globals.css";
 
-import { TRPCReactProvider } from "~/trpc/react";
+// import { TRPCReactProvider } from "~/trpc/react";
 import MainLayout from "~/components/main-layout";
 
 export const metadata = {

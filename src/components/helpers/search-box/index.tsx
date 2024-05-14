@@ -3,7 +3,7 @@ export default function SearchBox({ className }: { className?: string }) {
     <>
       <div
         className={`flex h-full w-full items-center  border border-qgray-border bg-white ${
-          className || ""
+          className ?? ""
         }`}
       >
         <div className="h-full flex-1 bg-red-500">

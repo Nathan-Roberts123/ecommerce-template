@@ -2,6 +2,7 @@ import ThinBag from "~/components/helpers/icons/ThinBag";
 import Middlebar from "./middlebar";
 import Navbar from "./navbar";
 import Link from "next/link";
+import Image from "next/image";
 
 interface Header {
   className?: string;
@@ -10,7 +11,7 @@ interface Header {
 
 export default function Header({ className, drawerAction }: Header) {
   return (
-    <header className={` ${className || ""} header-section-wrapper relative`}>
+    <header className={` ${className ?? ""} header-section-wrapper relative`}>
       <Middlebar className="quomodo-shop-middle-bar hidden lg:block" />
       <div className="quomodo-shop-drawer block h-[60px] w-full bg-white lg:hidden">
         <div className="flex h-full w-full items-center justify-between px-5">
@@ -32,7 +33,7 @@ export default function Header({ className, drawerAction }: Header) {
           </div>
           <div className="cursor-pointer">
             <Link href="/">
-              <img
+              <Image
                 width="152"
                 height="36"
                 src={`/assets/images/logo.svg`}

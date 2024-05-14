@@ -4,6 +4,7 @@ import ThinLove from "~/components/helpers/icons/ThinLove";
 import ThinPeople from "~/components/helpers/icons/ThinPeople";
 import SearchBox from "~/components/helpers/search-box";
 import Link from "next/link";
+import Image from "next/image";
 
 interface MiddlebarProps {
   className?: string;
@@ -17,7 +18,7 @@ export default function Middlebar({ className }: MiddlebarProps) {
           <div className="flex h-full items-center justify-between">
             <div className="cursor-pointer">
               <Link href="/">
-                <img
+                <Image
                   width="152"
                   height="36"
                   src={`/assets/images/logo.svg`}

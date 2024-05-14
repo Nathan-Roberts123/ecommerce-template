@@ -1,10 +1,11 @@
 import React from "react";
+import { type TProduct } from "~/types";
 
 interface DataIterationProps {
-  data: any[];
+  data: TProduct[] | [];
   startLength: number;
   endLength: number;
-  children: any;
+  children: ({ data }: { data: TProduct }) => void;
 }
 
 function DataIteration(props: DataIterationProps) {
@@ -16,7 +17,7 @@ function DataIteration(props: DataIterationProps) {
         data.length >= endLength &&
         data
           .slice(startLength, endLength)
-          .map((value: any) => children({ data: value }))}
+          .map((value) => children({ data: value }))}
     </>
   );
 }

@@ -7,7 +7,7 @@ interface NavbarProps {
 export default function Navbar({ className }: NavbarProps) {
   return (
     <div
-      className={`nav-widget-wrapper relative  z-30 h-[60px] w-full bg-qyellow  ${className || ""}`}
+      className={`nav-widget-wrapper relative  z-30 h-[60px] w-full bg-qyellow  ${className ?? ""}`}
     >
       <div className="container-x mx-auto h-full">
         <div className="relative h-full w-full">

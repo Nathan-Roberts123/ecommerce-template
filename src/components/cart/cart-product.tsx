@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export interface CartProductProps {
   imageUrl: string;
@@ -11,7 +12,11 @@ function CartProduct({ name, price, imageUrl }: CartProductProps) {
     <li className="flex h-full w-full">
       <div className="my-[20px] flex items-center justify-center space-x-[6px] px-4">
         <div className="h-full w-[65px]">
-          <img src={imageUrl} alt="" className="h-full w-full object-contain" />
+          <Image
+            src={imageUrl}
+            alt=""
+            className="h-full w-full object-contain"
+          />
         </div>
         <div className="flex h-full flex-1 flex-col justify-center ">
           <p className="title font-600 mb-2 line-clamp-2 text-[13px] leading-4 text-qblack hover:text-blue-600">

@@ -1,4 +1,4 @@
-export default function Facebook({ className }) {
+export default function Facebook({ className }: { className?: string }) {
   return (
     <svg
       width="10"

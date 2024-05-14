@@ -1,4 +1,4 @@
-import { TProduct } from "~/types";
+import { type TProduct } from "~/types";
 import Star from "../icons/Star";
 import ThinLove from "../icons/ThinLove";
 import Link from "next/link";
@@ -102,10 +102,10 @@ export default function ProductCard({ product }: ProductCardProps) {
         </Link>
         <p className="price">
           <span className="main-price font-600 text-[18px] text-qgray line-through">
-            {product.price}
+            ${product.price}
           </span>
           <span className="offer-price font-600 ml-2 text-[18px] text-qred">
-            {product.offer_price}
+            ${product.offer_price}
           </span>
         </p>
       </div>

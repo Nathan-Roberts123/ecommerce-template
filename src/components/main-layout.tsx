@@ -18,7 +18,7 @@ export default function MainLayout({
       <Drawer open={drawer} action={() => setDrawer(!drawer)} />
       <div className="w-full overflow-x-hidden">
         <Header drawerAction={() => setDrawer(!drawer)} />
-        <div className={`w-full  ${childrenClasses || "pb-[60px] pt-[30px]"}`}>
+        <div className={`w-full  ${childrenClasses ?? "pb-[60px] pt-[30px]"}`}>
           {children && children}
         </div>
         <Footer />

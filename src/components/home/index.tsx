@@ -1,10 +1,11 @@
 "use client";
-import { useEffect, useState } from "react";
+
+import { type TProduct } from "~/types";
 import datas from "../../data/products.json";
 import ProductSection from "../helpers/product-section";
 
 export default function Home() {
-  const { products } = datas;
+  const products = datas.products as TProduct[];
 
   return (
     <>

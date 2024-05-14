@@ -14,7 +14,7 @@ export default function Drawer({ className, open, action }: Drawer) {
   return (
     <>
       <div
-        className={`drawer-wrapper relative  h-full w-full  ${className || ""}`}
+        className={`drawer-wrapper relative  h-full w-full  ${className ?? ""}`}
       >
         {open && (
           <div

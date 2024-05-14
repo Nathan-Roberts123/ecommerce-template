@@ -1,4 +1,4 @@
-export default function Youtube({ className }) {
+export default function Youtube({ className }: { className?: string }) {
   return (
     <svg
       width="16"

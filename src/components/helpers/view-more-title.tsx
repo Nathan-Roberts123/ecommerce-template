@@ -11,7 +11,7 @@ export default function ViewMoreTitle(props: ViewMoreTitleProps) {
   const { categoryTitle = "", className, children, seeMoreUrl = "" } = props;
 
   return (
-    <div className={`section-wrapper w-full ${className || ""}`}>
+    <div className={`section-wrapper w-full ${className ?? ""}`}>
       <div className="container-x mx-auto">
         <div className=" section-title mb-5 flex items-center justify-between">
           <div>

@@ -23,10 +23,10 @@ export const ZProduct = z.object({
   title: z.string(),
   offer_price: z.number().optional(),
   price: z.number(),
-  campaingn_product: z.boolean().optional(),
-  cam_product_available: z.number().optional(),
-  cam_product_sale: z.number().optional(),
-  product_type: z.enum(product_types),
+  campaingn_product: z.boolean().optional().nullable(),
+  cam_product_available: z.number().optional().nullable(),
+  cam_product_sale: z.number().optional().nullable(),
+  product_type: z.enum(product_types).nullable(),
 });
 
 export type TProduct = z.infer<typeof ZProduct>;

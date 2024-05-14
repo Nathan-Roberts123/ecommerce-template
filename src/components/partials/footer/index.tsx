@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -8,7 +9,7 @@ export default function Footer() {
           {/* logo area */}
           <div className="mb-[40px]">
             <Link href="/">
-              <img
+              <Image
                 width="152"
                 height="36"
                 src={`/assets/images/logo.svg`}

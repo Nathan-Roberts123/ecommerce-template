@@ -1,5 +1,6 @@
 import Link from "next/link";
-import CartProduct, { CartProductProps } from "./cart-product";
+import CartProduct, { type CartProductProps } from "./cart-product";
+import { randomUUID } from "crypto";
 
 interface CartProps {
   className?: string;
@@ -29,7 +30,7 @@ export default function Cart({ className }: CartProps) {
       <div
         style={{ boxShadow: " 0px 15px 50px 0px rgba(0, 0, 0, 0.14)" }}
         className={`cart-wrappwer w-[300px] border-t-[3px] bg-white ${
-          className || ""
+          className ?? ""
         }`}
       >
         <div className="h-full w-full">
@@ -38,6 +39,7 @@ export default function Cart({ className }: CartProps) {
               {cartProducts.map((prd) => {
                 return (
                   <CartProduct
+                    key={randomUUID()}
                     imageUrl={prd.imageUrl}
                     name={prd.name}
                     price={prd.price}

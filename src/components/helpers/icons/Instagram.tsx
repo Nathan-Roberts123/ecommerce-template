@@ -1,11 +1,11 @@
-export default function Instagram({ className }) {
+export default function Instagram({ className }: { className?: string }) {
   return (
     <svg
       width="16"
       height="16"
       viewBox="0 0 16 16"
       fill="none"
-      className={className||""}
+      className={className ?? ""}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M12.1016 4.90039C12.6538 4.90039 13.1016 4.45268 13.1016 3.90039C13.1016 3.34811 12.6538 2.90039 12.1016 2.90039C11.5493 2.90039 11.1016 3.34811 11.1016 3.90039C11.1016 4.45268 11.5493 4.90039 12.1016 4.90039Z" />

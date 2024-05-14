@@ -2,6 +2,10 @@ export default function Arrow({
   className,
   width = "5.78538",
   height = "1.28564",
+}: {
+  className?: string;
+  width?: string;
+  height?: string;
 }) {
   return (
     <svg

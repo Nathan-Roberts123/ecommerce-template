@@ -3,7 +3,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Arrow from "~/components/helpers/icons/Arrow";
 import CategoryListItem from "./category-list-item";
-import { CategoryListItemProps } from "./category-list-item";
+import { type CategoryListItemProps } from "./category-list-item";
 
 import Laptop from "~/components/helpers/icons/Laptop";
 import Gaming from "~/components/helpers/icons/Gaming";
@@ -133,7 +133,13 @@ function CategoryList() {
       >
         <ul className="categories-list">
           {CategoryItems.map((item: CategoryListItemProps) => {
-            return <CategoryListItem text={item.text} icon={item.icon} />;
+            return (
+              <CategoryListItem
+                key={item.text}
+                text={item.text}
+                icon={item.icon}
+              />
+            );
           })}
         </ul>
       </div>

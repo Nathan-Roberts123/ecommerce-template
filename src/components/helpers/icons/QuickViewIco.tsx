@@ -1,4 +1,4 @@
-export default function QuickViewIco({ className }) {
+export default function QuickViewIco({ className }: { className?: string }) {
   return (
     <svg
       width="20"
