@@ -1,31 +1,33 @@
 import React from "react";
 import Image from "next/image";
+import { type TProduct } from "~/types";
+
+export type cartProduct = Omit<TProduct, "review" | "brand" | "product_type">;
 
 export interface CartProductProps {
-  imageUrl: string;
-  name: string;
-  price: number;
+  product: cartProduct;
 }
 
-function CartProduct({ name, price, imageUrl }: CartProductProps) {
+function CartProduct({ product }: CartProductProps) {
   return (
     <li className="flex h-full w-full">
       <div className="my-[20px] flex items-center justify-center space-x-[6px] px-4">
         <div className="h-full w-[65px]">
           <Image
-            src={imageUrl}
+            src={product.image}
             alt=""
+            fill
             className="h-full w-full object-contain"
           />
         </div>
         <div className="flex h-full flex-1 flex-col justify-center ">
           <p className="title font-600 mb-2 line-clamp-2 text-[13px] leading-4 text-qblack hover:text-blue-600">
-            {name}
+            {product.title}
           </p>
 
           <p className="price">
             <span className="offer-price font-600 ml-2 text-[15px] text-qred">
-              ${price}
+              ${product.price}
             </span>
           </p>
         </div>

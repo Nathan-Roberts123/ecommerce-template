@@ -1,25 +1,28 @@
 import Link from "next/link";
-import CartProduct, { type CartProductProps } from "./cart-product";
-import { randomUUID } from "crypto";
+import CartProduct from "./cart-product";
+import { type cartProduct } from "./cart-product";
 
 interface CartProps {
   className?: string;
 }
 
-const cartProducts: CartProductProps[] = [
+const cartProducts: cartProduct[] = [
   {
-    imageUrl: "/assets/images/product-img-1.jpg",
-    name: "iPhone 12 Pro Max 128GB Golen colour",
+    id: "1e",
+    image: "/assets/images/product-img-1.jpg",
+    title: "iPhone 12 Pro Max 128GB Golen colour",
     price: 38,
   },
   {
-    imageUrl: "/assets/images/product-img-1.jpg",
-    name: "iPhone 12 Pro Max 128GB Golen colour",
+    id: "2e",
+    image: "/assets/images/product-img-1.jpg",
+    title: "iPhone 12 Pro Max 128GB Golen colour",
     price: 38,
   },
   {
-    imageUrl: "/assets/images/product-img-1.jpg",
-    name: "iPhone 12 Pro Max 128GB Golen colour",
+    id: "3e",
+    image: "/assets/images/product-img-1.jpg",
+    title: "iPhone 12 Pro Max 128GB Golen colour",
     price: 38,
   },
 ];
@@ -37,14 +40,7 @@ export default function Cart({ className }: CartProps) {
           <div className="product-items h-[310px] overflow-y-scroll">
             <ul>
               {cartProducts.map((prd) => {
-                return (
-                  <CartProduct
-                    key={randomUUID()}
-                    imageUrl={prd.imageUrl}
-                    name={prd.name}
-                    price={prd.price}
-                  />
-                );
+                return <CartProduct key={prd.id} product={prd} />;
               })}
             </ul>
           </div>

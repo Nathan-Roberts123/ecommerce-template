@@ -19,7 +19,7 @@ export const ZProduct = z.object({
   id: z.string(),
   image: z.string(),
   brand: z.string(),
-  review: z.number(),
+  review: z.number().default(0),
   title: z.string(),
   offer_price: z.number().optional(),
   price: z.number(),
