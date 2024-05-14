@@ -1,7 +1,7 @@
-import React from "react";
+import Signup from "~/components/auth/signup";
 
-function Signup() {
-  return <div>Signup</div>;
+function SignupPage() {
+  return <Signup />;
 }
 
-export default Signup;
+export default SignupPage;
